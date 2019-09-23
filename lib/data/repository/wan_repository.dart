@@ -36,7 +36,7 @@ class WanRepository {
           path: WanAndroidApi.ARTICLE_LISTPROJECT, page: page),
     );
 
-    if (baseResp.code != null) {
+    if (baseResp.code != Constant.status_success) {
       return new Future.error(baseResp.msg);
     }
 
@@ -58,7 +58,7 @@ class WanRepository {
             WanAndroidApi.getPath(path: WanAndroidApi.ARTICLE_LIST, page: page),
             data: data);
 
-    if (baseResp.code != null) {
+    if (baseResp.code != Constant.status_success) {
       return new Future.error(baseResp.msg);
     }
 

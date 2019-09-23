@@ -162,7 +162,9 @@ class _SplashPageState extends State<SplashPage> {
               child: new Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
                 child: new InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    _goMain();
+                  },
                   child: new CircleAvatar(
                     radius: 48.0,
                     backgroundColor: Colors.indigoAccent,

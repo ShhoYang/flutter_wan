@@ -102,7 +102,10 @@ class HomePage extends StatelessWidget {
       titleColor: Colors.green,
       leftIcon: Icons.library_books,
       titleId: Ids.recWxArticle,
-      onTap: () {},
+      onTap: () {
+        NavigatorUtils.pushTabPage(context,
+            labelId: Ids.titleWxArticleTree, titleId: Ids.titleWxArticleTree);
+      },
     ));
     children.addAll(_children);
     return new Column(

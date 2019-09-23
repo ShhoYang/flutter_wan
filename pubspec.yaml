@@ -116,10 +116,9 @@ flutter:
     - assets/images/guide3.png
     - assets/images/guide4.png
     - assets/images/splash_bg.png
-
-#    - packages/base_library/assets/ic_login_bg.png
-#    - packages/base_library/assets/ic_network_error.png
-#    - packages/base_library/assets/ic_data_empty.png
+    - assets/images/ic_data_empty.png
+    - assets/images/ic_network_error.png
+    - assets/images/ic_login_bg.png
 
     - assets/data/china.json
 

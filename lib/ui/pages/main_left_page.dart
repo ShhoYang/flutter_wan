@@ -1,12 +1,18 @@
 import 'package:fluintl/fluintl.dart';
 import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_wan/blocs/bloc_provider.dart';
+import 'package:flutter_wan/blocs/collect_bloc.dart';
 import 'package:flutter_wan/common/common.dart';
 import 'package:flutter_wan/common/sp_helper.dart';
 import 'package:flutter_wan/data/protocol/models.dart';
 import 'package:flutter_wan/event/event.dart';
 import 'package:flutter_wan/res/strings.dart';
 import 'package:flutter_wan/res/style.dart';
+import 'package:flutter_wan/ui/pages/about_page.dart';
+import 'package:flutter_wan/ui/pages/collection_page.dart';
+import 'package:flutter_wan/ui/pages/setting_page.dart';
+import 'package:flutter_wan/ui/pages/share_page.dart';
 import 'package:flutter_wan/utils/navigator_utils.dart';
 import 'package:flutter_wan/utils/utils.dart';
 
@@ -24,10 +30,16 @@ class _MainLeftPageState extends State<MainLeftPage> {
   @override
   void initState() {
     super.initState();
-    _pageInfo.add(PageInfo(Ids.titleCollection, Icons.collections, null));
-    _pageInfo.add(PageInfo(Ids.titleSetting, Icons.settings, null));
-    _pageInfo.add(PageInfo(Ids.titleAbout, Icons.info, null));
-    _pageInfo.add(PageInfo(Ids.titleShare, Icons.share, null));
+    _pageInfo.add(PageInfo(
+        Ids.titleCollection,
+        Icons.collections,
+        new CollectionPage(
+          labelId: Ids.titleCollection,
+        )));
+    _pageInfo
+        .add(PageInfo(Ids.titleSetting, Icons.settings, new SettingPage()));
+    _pageInfo.add(PageInfo(Ids.titleAbout, Icons.info, new AboutPage()));
+    _pageInfo.add(PageInfo(Ids.titleShare, Icons.share, new SharePage()));
   }
 
   void _showLoginOutDialog(BuildContext context) {
@@ -170,8 +182,15 @@ class _MainLeftPageState extends State<MainLeftPage> {
                         if (pageInfo.titleId == Ids.titleSignOut) {
                           _showLoginOutDialog(context);
                         } else if (pageInfo.titleId == Ids.titleCollection) {
-                          // todo
-                          // NavigatorUtils.pushPage(context, null);
+                          NavigatorUtils.pushPage(
+                            context,
+                            BlocProvider<CollectBloc>(
+                              child: pageInfo.page,
+                              bloc: CollectBloc(),
+                            ),
+                            pageName: pageInfo.titleId,
+                            needLogin: Utils.isNeedLogin(pageInfo.titleId),
+                          );
                         } else {
                           NavigatorUtils.pushPage(
                             context,
