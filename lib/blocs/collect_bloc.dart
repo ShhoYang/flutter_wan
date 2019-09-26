@@ -43,7 +43,7 @@ class CollectBloc implements BlocBase {
   Future onRefresh({String labelId, bool isReload}) {
     LogUtil.e('CollectBloc onRefresh..... $labelId');
     _collectPage = 0;
-    if (isReload) {
+    if (isReload == true) {
       _collectListSink.add(null);
     }
     return getData(labelId: labelId, page: _collectPage);

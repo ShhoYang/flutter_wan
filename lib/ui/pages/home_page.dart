@@ -165,7 +165,7 @@ class HomePage extends StatelessWidget {
                     extra: status == 0 ? 'Go' : '',
                     onTap: () {
                       if (status == 0) {
-                        // todo
+
                       } else {
                         NavigatorUtils.launchInBrowser(model.url,
                             title: model.title);

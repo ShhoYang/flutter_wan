@@ -4,6 +4,7 @@ import 'package:flutter_wan/blocs/bloc_provider.dart';
 import 'package:flutter_wan/blocs/tab_bloc.dart';
 import 'package:flutter_wan/data/protocol/models.dart';
 import 'package:flutter_wan/ui/pages/tab_page.dart';
+import 'package:flutter_wan/ui/pages/user/user_login_page.dart';
 import 'package:flutter_wan/ui/widgets/web_scaffold.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,8 +22,7 @@ class NavigatorUtils {
     }
 
     if (needLogin && !Utils.isLogin()) {
-      //todo
-//      pushPage(context, use)
+      pushPage(context, new UserLoginPage());
       return;
     }
 

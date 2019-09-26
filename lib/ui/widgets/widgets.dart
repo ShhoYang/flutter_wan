@@ -4,6 +4,8 @@ import 'package:flutter_wan/blocs/main_bloc.dart';
 import 'package:flutter_wan/common/common.dart';
 import 'package:flutter_wan/res/colors.dart';
 import 'package:flutter_wan/res/style.dart';
+import 'package:flutter_wan/ui/pages/user/user_login_page.dart';
+import 'package:flutter_wan/utils/navigator_utils.dart';
 import 'package:flutter_wan/utils/utils.dart';
 
 class ProgressView extends StatelessWidget {
@@ -37,7 +39,8 @@ class LikeBtn extends StatelessWidget {
         if (Utils.isLogin()) {
           bloc.doCollection(labelId, id, !isLike);
         } else {
-          // todo
+          NavigatorUtils.pushPage(context, UserLoginPage(),
+              pageName: 'UserLoginPage');
         }
       },
       child: new Icon(

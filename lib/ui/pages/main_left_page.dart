@@ -144,26 +144,26 @@ class _MainLeftPageState extends State<MainLeftPage> {
               ],
             ),
           ),
-          new Container(
-            height: 50.0,
-            child: new Material(
-              color: Colors.grey[200],
-              child: new InkWell(
-                onTap: () {
-                  //todo
-                },
-                child: new Center(
-                  child: new Text(
-                    'Flutter Demo',
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+//          new Container(
+//            height: 50.0,
+//            child: new Material(
+//              color: Colors.grey[200],
+//              child: new InkWell(
+//                onTap: () {
+//                  //todo
+//                },
+//                child: new Center(
+//                  child: new Text(
+//                    'Flutter Demo',
+//                    style: TextStyle(
+//                      color: Theme.of(context).primaryColor,
+//                      fontSize: 16.0,
+//                    ),
+//                  ),
+//                ),
+//              ),
+//            ),
+//          ),
           new Expanded(
               child: new ListView.builder(
                   padding: EdgeInsets.all(0.0),

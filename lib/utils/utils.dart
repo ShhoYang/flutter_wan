@@ -81,6 +81,12 @@ class Utils {
     return ObjectUtil.isNotEmpty(SpUtil.getString(Constant.keyAppToken));
   }
 
+  static void showSnackBar(BuildContext context, String msg) {
+    Scaffold.of(context).showSnackBar(
+      SnackBar(content: Text("$msg")),
+    );
+  }
+
   static int getLoadStatus(bool hasError, List data) {
     if (hasError) {
       return LoadStatus.fail;
